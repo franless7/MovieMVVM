@@ -117,7 +117,7 @@ extension PersonListView: UICollectionViewDelegate, UICollectionViewDataSource {
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
 
-        if offsetY > contentHeight - height && request.isCheckPageNumberThree == true {
+        if offsetY > contentHeight - height && request.isCheckPageNumberFour == true {
             loadNextPage()
         }
     }

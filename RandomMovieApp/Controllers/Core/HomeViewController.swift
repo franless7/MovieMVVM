@@ -235,30 +235,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: CollectionTableViewCellDelegate {
     func collectionTableViewCellDidTapCell(_ cell: CollectionTableViewCell,
                                            viewModel: TitleDetailViewViewModel) {
-        DispatchQueue.main.async { [weak self] in
             let vc = TitleDetailViewController()
             vc.configure(with: viewModel)
-            self?.navigationController?.pushViewController(vc, animated: true)
-        }
+            navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension HomeViewController: SearchViewDelegate {
     func searchViewDidSelectItem(_ viewModel: TitleDetailViewViewModel) {
-        DispatchQueue.main.async { [weak self] in
             let vc = TitleDetailViewController()
             vc.configure(with: viewModel)
-            self?.navigationController?.pushViewController(vc, animated: true)
-        }
+            navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension HomeViewController: HeaderTableViewDelegate {
     func collectionTableViewCellDidTapCell(_ cell: HeaderCollectionTableViewCell, viewModel: TitleDetailViewViewModel) {
-        DispatchQueue.main.async { [weak self] in
             let vc = TitleDetailViewController()
             vc.configure(with: viewModel)
-            self?.navigationController?.pushViewController(vc, animated: true)
-        }
+            navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -11,8 +11,9 @@ final class MovieRequest {
     
     private let endPoint: MovieEndpoint
     
-    public var isCheckPageNumberThree = true
+    public var isCheckPageNumberFour = true
     var page: Int = 1
+    let maxPageNumber = 3
     
     private var urlString: String {
         var string = Constants.baseUrl
@@ -59,10 +60,10 @@ final class MovieRequest {
     }
     
     public func incrementPage() {
-        if page <= 3 {
+        if page <= maxPageNumber {
             page += 1
         } else {
-            isCheckPageNumberThree = false
+            isCheckPageNumberFour = false
         }
     }
 }

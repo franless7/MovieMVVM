@@ -19,13 +19,6 @@ class MainDetailListView: UIView {
 
     // MARK: - UI Elements
     
-    private let activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .medium)
-        indicator.color = .gray
-        indicator.hidesWhenStopped = true
-        return indicator
-    }()
-    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -51,8 +44,6 @@ class MainDetailListView: UIView {
         collectionView.dataSource = self
         addSubview(collectionView)
         addConstraints()
-        addSubview(activityIndicator)
-        activityIndicator.center = self.center
     }
     
     required init?(coder: NSCoder) {
@@ -87,11 +78,9 @@ class MainDetailListView: UIView {
                     let newTitles = titlesResponse.results
                     self?.titles.append(contentsOf: newTitles)
                     self?.collectionView.reloadData()
-                    self?.activityIndicator.stopAnimating()
                 }
             case .failure(let error):
                 print("Error fetching new data: \(error.localizedDescription)")
-                self?.activityIndicator.stopAnimating()
             }
         }
     }
@@ -139,26 +128,21 @@ extension MainDetailListView: UICollectionViewDelegate, UICollectionViewDataSour
         let voteAverage = titles[indexPath.row].voteAverage
         
         YoutubeService.shared.getMovie(with: titleName + "trailer") { [weak self] result in
+            var element: VideoElement?
             switch result {
             case .success(let videoElement):
-                let viewModel = TitleDetailViewViewModel(
-                    title: titleName,
-                    posterUrl: posterUrl,
-                    titleOverview: titleOverview,
-                    youtubeView: videoElement, 
-                    voteAverage: voteAverage,
-                    genreIds: title.genreIds
-                )
-                self?.delegate?.detailViewCellDidSelect(viewModel)
+                element = videoElement
             case .failure(let error):
+                element = VideoElement(id: IdVideoElement(kind: "", videoId: ""))
                 print(error.localizedDescription)
-                let emptyVideoElement = VideoElement(id: IdVideoElement(kind: "", videoId: ""))
+            }
+            if let element = element {
                 let viewModel = TitleDetailViewViewModel(
                     title: titleName,
                     posterUrl: posterUrl,
                     titleOverview: titleOverview,
-                    youtubeView: emptyVideoElement, 
-                    voteAverage: title.voteAverage,
+                    youtubeView: element,
+                    voteAverage: voteAverage,
                     genreIds: title.genreIds
                 )
                 self?.delegate?.detailViewCellDidSelect(viewModel)
@@ -171,8 +155,7 @@ extension MainDetailListView: UICollectionViewDelegate, UICollectionViewDataSour
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
 
-        if offsetY > contentHeight - height && request.isCheckPageNumberThree == true {
-            activityIndicator.startAnimating()
+        if offsetY > contentHeight - height && request.isCheckPageNumberFour == true {
             loadNextPage()
         }
     }

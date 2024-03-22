@@ -32,9 +32,14 @@ final class SearchService {
             
             do {
                 let decodedData = try JSONDecoder().decode(type.self, from: data)
-                completion(.success(decodedData))
+                DispatchQueue.main.async {
+                    completion(.success(decodedData))
+                }
             } catch {
-                completion(.failure(RMServiceError.failedToDataDecode))
+                DispatchQueue.main.async {
+                    completion(.failure(RMServiceError.failedToDataDecode))
+                }
+                
             }
         }
         task.resume()

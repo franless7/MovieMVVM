@@ -8,10 +8,16 @@
 import UIKit
 import SnapKit
 
+protocol TitleDetailDelegate: AnyObject {
+    func didToggleFavorite(for viewModel: TitleDetailViewViewModel)
+}
+
 class TitleDetailViewController: UIViewController {
-    
+
     private var previewUrl: URL?
-    private var genreIds: [Int]?
+    private var viewModel: TitleDetailViewViewModel?
+    private var isFavoriteButtonDidTapped = false
+    weak var delegate: TitleDetailDelegate?
     
     // MARK: - UI Elements
     let scrollView: UIScrollView = {
@@ -82,7 +88,25 @@ class TitleDetailViewController: UIViewController {
     }()
     
     @objc private func favoriteButtonDidTapped() {
-        favoriteButton.setImage(UIImage(named: "selectedheart"), for: .normal)
+        isFavoriteButtonDidTapped.toggle()
+        if isFavoriteButtonDidTapped == true {
+            favoriteButton.setImage(UIImage(named: "selectedheart"), for: .normal)
+            if let viewModel = viewModel {
+                DataPersistenceManager.shared.saveTitleFavoritesWith(model: viewModel) { result in
+                    switch result {
+                    case .success():
+                        print("viewModelSaved")
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+        } else {
+            favoriteButton.setImage(UIImage(named: "whiteheart"), for: .normal)
+            if let viewModel = viewModel {
+                        delegate?.didToggleFavorite(for: viewModel) // Delegate'e bildirim gönderilir
+                    }
+        }
     }
     
     // Main Info
@@ -115,7 +139,7 @@ class TitleDetailViewController: UIViewController {
     }()
     
     private func configureMainLabelStack() {
-        if let genreIds = genreIds {
+        if let genreIds = viewModel?.genreIds {
             let genreNames = GenreHandler.shared.genreNames(for: genreIds)
             
             for (index, genreName) in genreNames.prefix(3).enumerated() {
@@ -248,7 +272,7 @@ class TitleDetailViewController: UIViewController {
     }
 
     public func configure(with viewModel: TitleDetailViewViewModel) {
-        self.genreIds = viewModel.genreIds
+        self.viewModel = viewModel
         titleLabel.text = viewModel.title
         overview.contentLabel.text = viewModel.titleOverview
         imdbLabel.text = String.formattedVoteAverage(voteAverage: viewModel.voteAverage)
@@ -264,3 +288,4 @@ class TitleDetailViewController: UIViewController {
         backDropImage.sd_setImage(with: url)
     }
 }
+

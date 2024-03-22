@@ -49,7 +49,7 @@ class TitleCollectionViewCell: UICollectionViewCell {
 
     public func configure(with model: String, voteAverage: Double) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else { return }
-        posterImageView.sd_setImage(with: url, completed: nil)
-        imdbLabel.text = String.formattedVoteAverage(voteAverage: voteAverage)
+        posterImageView.sd_setImage(with: url)
+        imdbLabel.text = "IMDB \(String.formattedVoteAverage(voteAverage: voteAverage))"
     }
 }

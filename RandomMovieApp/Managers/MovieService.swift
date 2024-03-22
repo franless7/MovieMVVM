@@ -19,7 +19,7 @@ final class MovieService {
     
     private init() {}
 
-    func execute<T: Codable>(
+    func execute<T: Decodable>(
         _ request: MovieRequest,
         expecting type: T.Type,
         completion: @escaping (Result <T, Error>) -> Void

@@ -22,10 +22,15 @@ final class YoutubeService {
             }
             do {
                 let results = try JSONDecoder().decode(YoutubeSearchResponse.self, from: data)
-                completion(.success(results.items[0]))
+                DispatchQueue.main.async {
+                    completion(.success(results.items[0]))
+                }
+              
             } catch {
-                completion(.failure(error))
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                    print(error.localizedDescription)
+                }
             }
         }
         task.resume()

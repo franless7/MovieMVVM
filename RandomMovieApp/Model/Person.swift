@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Person: Codable {
+struct Person: Decodable {
     let adult: Bool
     let gender: Int
     let id: Int
@@ -19,11 +19,11 @@ struct Person: Codable {
  //   let known_for: [knownFor]
 }
 
-struct PersonPopularResponse: Codable {
+struct PersonPopularResponse: Decodable {
     let results: [Person]
 }
 
-struct knownFor: Codable {
+struct knownFor: Decodable {
     let id: Int
     let title: String
     let original_title: String

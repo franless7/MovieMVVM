@@ -3,4 +3,118 @@
    uuid = "A6D1E40B-4C67-43ED-A3AC-3EF231B81D32"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "042BA041-62CD-4F98-AA21-5CC5B7D388BD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RandomMovieApp/Controllers/Core/FavoritesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "didToggleFavorite(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "042BA041-62CD-4F98-AA21-5CC5B7D388BD - b0b0ba9af44c8807"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RandomMovieApp.FavoritesViewController.didToggleFavorite(for: RandomMovieApp.TitleDetailViewViewModel) -&gt; ()"
+                  moduleName = "RandomMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fatihyoruk/Desktop/RandomMovieApp/RandomMovieApp/Controllers/Core/FavoritesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  uuid = "042BA041-62CD-4F98-AA21-5CC5B7D388BD - 1fcb3b07ede3b91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Result&lt;(), Swift.Error&gt;) -&gt; () in RandomMovieApp.FavoritesViewController.didToggleFavorite(for: RandomMovieApp.TitleDetailViewViewModel) -&gt; ()"
+                  moduleName = "RandomMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fatihyoruk/Desktop/RandomMovieApp/RandomMovieApp/Controllers/Core/FavoritesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "576B3B07-F370-4275-B6AA-6D53A0E85EF2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RandomMovieApp/Controllers/Core/FavoritesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "didToggleFavorite(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F20FFA30-3BC6-48C8-B356-86B9B11F6B03"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RandomMovieApp/Controllers/Detail/TitleDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "favoriteButtonDidTapped()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F56E990F-9FBF-4BE4-A5E0-1FE5D1552739"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RandomMovieApp/Controllers/Core/FavoritesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "didToggleFavorite(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E0BBE1B-33D0-49A2-9E48-7C2790977E2C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RandomMovieApp/Controllers/Core/FavoritesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "didToggleFavorite(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

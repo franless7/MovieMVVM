@@ -9,7 +9,6 @@ import Foundation
 
 struct Title: Codable {
     let id: Int
-    let mediaType: String?
     let originalName: String?
     let genreIds: [Int]
     let name: String?
@@ -17,15 +16,11 @@ struct Title: Codable {
     let posterPath: String?
     let backdropPath: String?
     let overview: String?
-    let voteCount: Int
     let releaseDate: String?
     let voteAverage: Double
-    let originalLanguage: String
-    let popularity: Double
-    
+
     enum CodingKeys: String, CodingKey {
         case id
-        case mediaType = "media_type"
         case originalName = "original_name"
         case genreIds = "genre_ids"
         case name
@@ -33,11 +28,8 @@ struct Title: Codable {
         case posterPath = "poster_path"
         case backdropPath = "backdrop_path"
         case overview
-        case voteCount = "vote_count"
         case releaseDate = "release_date"
         case voteAverage = "vote_average"
-        case originalLanguage = "original_language"
-        case popularity
     }
 }
 

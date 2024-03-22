@@ -14,8 +14,7 @@ extension String {
     }
     
     static func formattedVoteAverage(voteAverage: Double) -> String {
-        let formattedVoteAverage = String(format: "%.1f", voteAverage)
-        return "IMDB \(formattedVoteAverage)"
+        return String(format: "%.1f", voteAverage)
     }
 }
 
